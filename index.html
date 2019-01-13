@@ -10,21 +10,34 @@
 	margin-left: 10%;
 	font-size: 120%;
 }
-.amounts {
+#amounts {
 	position: relative;
 	left: 5%;
 	top: -5%;
 }
 
 </style>
+<script>
+	
+var oxygenTxt = document.getElementById("oxygen").innerHTML;
+var foodTxt = document.getElementById("food").innerHTML;
+var waterTxt = document.getElementById("water").innerHTML;
+
+function advanceTime() {
+	oxygenTxt = toString(parseInt(oxygenTxt) -= 2);
+	foodTxt = toString(parseInt(foodTxt) -= 2);
+	waterTxt = toString(parseInt(waterTxt) -= 2);
+}
+
+</script>
 </head>
 <body>
 <h1 id="header1">Space Station</h1>
 
 <div id="resources">
-<p>Oxygen</p> <p class="amounts" id="oxygen">100%</p>
-<p>Food</p> <p class="amounts" id="food">100</p>
-<p>Water</p> <p class="amounts" id="water">100</p>
+<p>Oxygen</p> <p id="amounts">100</p>
+<p>Food</p> <p id="amounts">100</p>
+<p>Water</p> <p id="amounts">100</p>
 </div>
 </body>
 </html>

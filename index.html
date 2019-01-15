@@ -15,6 +15,12 @@
 	left: 5%;
 	top: -5%;
 }
+#advanceBtn {
+	position: absolute;
+    right: 5%;
+    top: 5%;
+
+}
 </style>
 <script>
 	
@@ -30,7 +36,7 @@ function advanceTime() {
 </head>
 <body>
 <h1 id="header1">Space Station</h1>
-<button onclick="advanceTime()">Advance Time</button>
+<button id="advanceBtn" onclick="advanceTime()">Advance Time</button>
 <div id="resources">
 <p>Oxygen</p>
 <p class="amounts" id="oxygen">100</p>

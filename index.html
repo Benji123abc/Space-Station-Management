@@ -19,18 +19,18 @@
 	position: absolute;
     right: 5%;
     top: 5%;
-
 }
 </style>
 <script>
-	
-var oxygenTxt = document.getElementById("oxygen").innerHTML;
-var foodTxt = document.getElementById("food").innerHTML;
-var waterTxt = document.getElementById("water").innerHTML;
 function advanceTime() {
 	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) - 10;
     document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) - 10;
     document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) - 10;
+   	if (parseInt(document.getElementById("oxygen").innerHTML) < 0 || parseInt(document.getElementById("food").innerHTML) < 0 || parseInt(document.getElementById("water").innerHTML) < 0) {
+    	document.getElementById("oxygen").innerHTML = "Game Over";
+        document.getElementById("food").innerHTML = "Game Over";
+        document.getElementById("water").innerHTML = "Game Over";
+    }
 }
 </script>
 </head>

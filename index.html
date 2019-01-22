@@ -32,6 +32,16 @@
 	display: solid;
 
 }
+#energyLabel {
+	position: absolute;
+    right: 13%;
+    top: 10%;
+}
+#energy {
+	position: absolute;
+    right: 6%;
+    top: 10%;
+}
 
 </style>
 <script>
@@ -50,17 +60,22 @@ function advanceTime() {
     document.getElementById("waterBtn").style.display = "block";
 }
 function collect(resource) {
-	if (resource == "oxygen") {
-    	document.getElementById("oxygenBtn").style.display = "none";
-        document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + 10;
-    }
-    if (resource == "food") {
-    	document.getElementById("foodBtn").style.display = "none";
-        document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + 10;
-    }
-    if (resource == "water") {
-    	document.getElementById("waterBtn").style.display = "none";
-        document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + 10;
+	if (parseInt(document.getElementById("energy").innerHTML) > 0) {
+		if (resource == "oxygen") {
+    		document.getElementById("oxygenBtn").style.display = "none";
+        	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + 10;
+        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
+    	}
+    	if (resource == "food") {
+    		document.getElementById("foodBtn").style.display = "none";
+        	document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + 10;
+        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
+        }
+    	if (resource == "water") {
+    		document.getElementById("waterBtn").style.display = "none";
+        	document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + 10;
+        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
+        }
     }
 }
 </script>
@@ -80,5 +95,6 @@ function collect(resource) {
 <button id="waterBtn" onclick="collect('water')">Collect Water</button>
 </div>
 <p id="energyLabel">Energy</p>
+<p id="energy">100</p>
 </body>
 </html>

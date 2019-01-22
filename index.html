@@ -44,6 +44,10 @@ function advanceTime() {
         document.getElementById("food").innerHTML = "Game Over";
         document.getElementById("water").innerHTML = "Game Over";
     }
+    
+    document.getElementById("oxygenBtn").style.display = "block";
+    document.getElementById("foodBtn").style.display = "block";
+    document.getElementById("waterBtn").style.display = "block";
 }
 function collect(resource) {
 	if (resource == "oxygen") {

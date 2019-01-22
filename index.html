@@ -20,6 +20,19 @@
     right: 5%;
     top: 5%;
 }
+#oxygenBtn {
+	display: solid;
+
+}
+#foodBtn {
+	display: solid;
+
+}
+#waterBtn {
+	display: solid;
+
+}
+
 </style>
 <script>
 function advanceTime() {
@@ -32,6 +45,20 @@ function advanceTime() {
         document.getElementById("water").innerHTML = "Game Over";
     }
 }
+function collect(resource) {
+	if (resource == "oxygen") {
+    	document.getElementById("oxygenBtn").style.display = "none";
+        document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + 10;
+    }
+    if (resource == "food") {
+    	document.getElementById("foodBtn").style.display = "none";
+        document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + 10;
+    }
+    if (resource == "water") {
+    	document.getElementById("waterBtn").style.display = "none";
+        document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + 10;
+    }
+}
 </script>
 </head>
 <body>
@@ -40,10 +67,13 @@ function advanceTime() {
 <div id="resources">
 <p>Oxygen</p>
 <p class="amounts" id="oxygen">100</p>
+<button id="oxygenBtn" onclick="collect('oxygen')">Collect Oxygen</button>
 <p>Food</p>
 <p class="amounts" id="food">100</p>
+<button id="foodBtn" onclick="collect('food')">Collect Food</button>
 <p>Water</p>
 <p class="amounts" id="water">100</p>
+<button id="waterBtn" onclick="collect('water')">Collect Water</button>
 </div>
 </body>
 </html>

@@ -71,22 +71,28 @@ function advanceTime() {
 function collect(resource) {
 	if (parseInt(document.getElementById("energy").innerHTML) > 0) {
 		if (resource == "oxygen") {
-    		document.getElementById("oxygenBtn").style.display = "none";
-            document.getElementById("oxygenInput").style.display = "none";
-        	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + parseInt(document.getElementById("oxygenInput").value);
-        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("oxygenInput").value) / 2;
+        	if (document.getElementById("oxygenInput").value.length != 0) {
+    			document.getElementById("oxygenBtn").style.display = "none";
+            	document.getElementById("oxygenInput").style.display = "none";
+        		document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + parseInt(document.getElementById("oxygenInput").value);
+        		document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("oxygenInput").value) / 2;
+           }
     	}
     	if (resource == "food") {
+        	if (document.getElementById("oxygenInput").value.length != 0) {
     		document.getElementById("foodBtn").style.display = "none";
             document.getElementById("foodInput").style.display = "none";
         	document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + parseInt(document.getElementById("foodInput").value);
         	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("foodInput").value) / 2;
+            }
         }
     	if (resource == "water") {
+        	if (document.getElementById("oxygenInput").value.length != 0) {
     		document.getElementById("waterBtn").style.display = "none";
             document.getElementById("waterInput").style.display = "none";
         	document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + parseInt(document.getElementById("waterInput").value);
         	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("waterInput").value) / 2;
+            }
         }
     }
 }
@@ -99,13 +105,13 @@ function collect(resource) {
 <p>Oxygen</p>
 <p class="amounts" id="oxygen">100</p>
 <button id="oxygenBtn" onclick="collect('oxygen')">Collect Oxygen</button> 
-<input id="oxygenInput">
+<input id="oxygenInput" type="number" min="1" max="50">
 <p>Food</p>
 <p class="amounts" id="food">100</p>
-<button id="foodBtn" onclick="collect('food')">Collect Food</button> <input id="foodInput">
+<button id="foodBtn" onclick="collect('food')">Collect Food</button> <input id="foodInput" type="number" min="1" max="50">
 <p>Water</p>
 <p class="amounts" id="water">100</p>
-<button id="waterBtn" onclick="collect('water')">Collect Water</button> <input id="waterInput">
+<button id="waterBtn" onclick="collect('water')">Collect Water</button> <input id="waterInput" type="number" min="1" max="50">
 </div>
 <p id="energyLabel">Energy</p>
 <p id="energy">100</p>

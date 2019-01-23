@@ -22,15 +22,12 @@
 }
 #oxygenBtn {
 	display: solid;
-
 }
 #foodBtn {
 	display: solid;
-
 }
 #waterBtn {
 	display: solid;
-
 }
 #energyLabel {
 	position: absolute;
@@ -42,7 +39,6 @@
     right: 6%;
     top: 10%;
 }
-
 </style>
 <script>
 function advanceTime() {
@@ -63,17 +59,20 @@ function collect(resource) {
 	if (parseInt(document.getElementById("energy").innerHTML) > 0) {
 		if (resource == "oxygen") {
     		document.getElementById("oxygenBtn").style.display = "none";
-        	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + 10;
+            document.getElementById("oxygenInput").style.display = "none";
+        	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + parseInt(document.getElementById("oxygenInput").value);
         	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
     	}
     	if (resource == "food") {
     		document.getElementById("foodBtn").style.display = "none";
-        	document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + 10;
+            document.getElementById("foodInput").style.display = "none";
+        	document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + parseInt(document.getElementById("foodInput").value);
         	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
         }
     	if (resource == "water") {
     		document.getElementById("waterBtn").style.display = "none";
-        	document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + 10;
+            document.getElementById("waterInput").style.display = "none";
+        	document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + parseInt(document.getElementById("waterInput").value);
         	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - 5;
         }
     }
@@ -86,13 +85,14 @@ function collect(resource) {
 <div id="resources">
 <p>Oxygen</p>
 <p class="amounts" id="oxygen">100</p>
-<button id="oxygenBtn" onclick="collect('oxygen')">Collect Oxygen</button> <input>
+<button id="oxygenBtn" onclick="collect('oxygen')">Collect Oxygen</button> 
+<input id="oxygenInput">
 <p>Food</p>
 <p class="amounts" id="food">100</p>
-<button id="foodBtn" onclick="collect('food')">Collect Food</button> <input>
+<button id="foodBtn" onclick="collect('food')">Collect Food</button> <input id="foodInput">
 <p>Water</p>
 <p class="amounts" id="water">100</p>
-<button id="waterBtn" onclick="collect('water')">Collect Water</button> <input>
+<button id="waterBtn" onclick="collect('water')">Collect Water</button> <input id="waterInput">
 </div>
 <p id="energyLabel">Energy</p>
 <p id="energy">100</p>

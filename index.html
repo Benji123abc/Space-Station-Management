@@ -52,10 +52,24 @@
 </style>
 <script>
 function advanceTime() {
-	document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) - parseInt(document.getElementById("population").innerHTML) / 10;
-    document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) - parseInt(document.getElementById("population").innerHTML) / 10;
-    document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) - parseInt(document.getElementById("population").innerHTML) / 10;
-   	if (parseInt(document.getElementById("oxygen").innerHTML) < 0 || parseInt(document.getElementById("food").innerHTML) < 0 || parseInt(document.getElementById("water").innerHTML) < 0) {
+	document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
+    document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
+    document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
+   	if (parseFloat(document.getElementById("oxygen").innerHTML) < 0) {
+    	document.getElementById("oxygen").innerHTML = "Game Over";
+        document.getElementById("food").innerHTML = "Game Over";
+        document.getElementById("water").innerHTML = "Game Over";
+    }
+    if (parseFloat(document.getElementById("food").innerHTML) < 0) {
+    	document.getElementById("population").innerHTML = parseFloat(document.getElementById("population").innerHTML) - 2;
+    	document.getElementById("food").innerHTML = "0";
+    }
+    if (parseFloat(document.getElementById("water").innerHTML) < 0) {
+    	document.getElementById("population").innerHTML = parseFloat(document.getElementById("population").innerHTML) - 2;
+    	document.getElementById("water").innerHTML = "0";
+    }
+
+    if (parseFloat(document.getElementById("population").innerHTML) <= 0) {
     	document.getElementById("oxygen").innerHTML = "Game Over";
         document.getElementById("food").innerHTML = "Game Over";
         document.getElementById("water").innerHTML = "Game Over";
@@ -69,29 +83,29 @@ function advanceTime() {
     document.getElementById("waterInput").style.display = "block";
 }
 function collect(resource) {
-	if (parseInt(document.getElementById("energy").innerHTML) > 0) {
+	if (parseFloat(document.getElementById("energy").innerHTML) > 0) {
 		if (resource == "oxygen") {
         	if (document.getElementById("oxygenInput").value.length != 0) {
     			document.getElementById("oxygenBtn").style.display = "none";
             	document.getElementById("oxygenInput").style.display = "none";
-        		document.getElementById("oxygen").innerHTML = parseInt(document.getElementById("oxygen").innerHTML) + parseInt(document.getElementById("oxygenInput").value);
-        		document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("oxygenInput").value) / 2;
+        		document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) + parseFloat(document.getElementById("oxygenInput").value);
+        		document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("oxygenInput").value) / 2;
            }
     	}
     	if (resource == "food") {
         	if (document.getElementById("oxygenInput").value.length != 0) {
     		document.getElementById("foodBtn").style.display = "none";
             document.getElementById("foodInput").style.display = "none";
-        	document.getElementById("food").innerHTML = parseInt(document.getElementById("food").innerHTML) + parseInt(document.getElementById("foodInput").value);
-        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("foodInput").value) / 2;
+        	document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) + parseFloat(document.getElementById("foodInput").value);
+        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("foodInput").value) / 2;
             }
         }
     	if (resource == "water") {
         	if (document.getElementById("oxygenInput").value.length != 0) {
     		document.getElementById("waterBtn").style.display = "none";
             document.getElementById("waterInput").style.display = "none";
-        	document.getElementById("water").innerHTML = parseInt(document.getElementById("water").innerHTML) + parseInt(document.getElementById("waterInput").value);
-        	document.getElementById("energy").innerHTML = parseInt(document.getElementById("energy").innerHTML) - parseInt(document.getElementById("waterInput").value) / 2;
+        	document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) + parseFloat(document.getElementById("waterInput").value);
+        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("waterInput").value) / 2;
             }
         }
     }

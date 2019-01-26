@@ -86,26 +86,32 @@ function collect(resource) {
 	if (parseFloat(document.getElementById("energy").innerHTML) > 0) {
 		if (resource == "oxygen") {
         	if (document.getElementById("oxygenInput").value.length != 0) {
-    			document.getElementById("oxygenBtn").style.display = "none";
-            	document.getElementById("oxygenInput").style.display = "none";
-        		document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) + parseFloat(document.getElementById("oxygenInput").value);
-        		document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("oxygenInput").value) / 2;
+        		if (parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("oxygenInput").value) / 2 >= 0) {
+	    			document.getElementById("oxygenBtn").style.display = "none";
+	            	document.getElementById("oxygenInput").style.display = "none";
+	        		document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) + parseFloat(document.getElementById("oxygenInput").value);
+	        		document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("oxygenInput").value) / 2;
+        		}
            }
     	}
     	if (resource == "food") {
-        	if (document.getElementById("oxygenInput").value.length != 0) {
-    		document.getElementById("foodBtn").style.display = "none";
-            document.getElementById("foodInput").style.display = "none";
-        	document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) + parseFloat(document.getElementById("foodInput").value);
-        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("foodInput").value) / 2;
+        	if (document.getElementById("foodInput").value.length != 0) {
+        		if (parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("foodInput").value) / 2 >= 0) {
+		    		document.getElementById("foodBtn").style.display = "none";
+		            document.getElementById("foodInput").style.display = "none";
+		        	document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) + parseFloat(document.getElementById("foodInput").value);
+		        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("foodInput").value) / 2;
+        		}
             }
         }
     	if (resource == "water") {
-        	if (document.getElementById("oxygenInput").value.length != 0) {
-    		document.getElementById("waterBtn").style.display = "none";
-            document.getElementById("waterInput").style.display = "none";
-        	document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) + parseFloat(document.getElementById("waterInput").value);
-        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("waterInput").value) / 2;
+        	if (document.getElementById("waterInput").value.length != 0) {
+        		if (parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("waterInput").value) / 2 >= 0) {
+	    		document.getElementById("waterBtn").style.display = "none";
+	            document.getElementById("waterInput").style.display = "none";
+	        	document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) + parseFloat(document.getElementById("waterInput").value);
+	        	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) - parseFloat(document.getElementById("waterInput").value) / 2;
+        		}
             }
         }
     }

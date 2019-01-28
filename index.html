@@ -54,9 +54,9 @@
 
 function advanceTime() {
 	document.getElementById("turn").innerHTML = parseFloat(document.getElementById("turn").innerHTML) + 1;
-	document.getElementById("oxygen").innerHTML = (parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10).toFixed(2);
-    document.getElementById("food").innerHTML = (parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10).toFixed(2);
-    document.getElementById("water").innerHTML = (parseFloat(document.getElementById("water").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10).toFixed(2);
+	document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10);
+    document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
+    document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
    	if (parseFloat(document.getElementById("oxygen").innerHTML) < 0) {
     	document.getElementById("oxygen").innerHTML = "Game Over";
         document.getElementById("food").innerHTML = "Game Over";
@@ -82,7 +82,7 @@ function advanceTime() {
     	document.getElementById("population").innerHTML = Math.round(parseFloat(document.getElementById("population").innerHTML)) + 1;
     }
 
-    	document.getElementById("energy").innerHTML = (parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / 20).toFixed(2);
+    	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / 20;
     
     document.getElementById("oxygenBtn").style.display = "block";
     document.getElementById("foodBtn").style.display = "block";

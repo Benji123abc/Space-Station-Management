@@ -79,10 +79,10 @@ function advanceTime() {
 
 
     if (parseFloat(document.getElementById("food").innerHTML) > 100) {
-    	document.getElementById("population").innerHTML = parseFloat(document.getElementById("population").innerHTML) + 1;
+    	document.getElementById("population").innerHTML = Math.round(parseFloat(document.getElementById("population").innerHTML)) + 1;
     }
 
-    	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / 20;
+    	document.getElementById("energy").innerHTML = (parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / 20).toFixed(2);
     
     document.getElementById("oxygenBtn").style.display = "block";
     document.getElementById("foodBtn").style.display = "block";

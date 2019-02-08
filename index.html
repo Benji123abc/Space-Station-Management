@@ -73,14 +73,17 @@
 </style>
 <script>
 
+let resourceLossDivisor = 10;
+let energyLossDivisor = 20;
+
 function advanceTime() {
 	document.getElementById("upgradeBtn1").style.display = "block";
 	document.getElementById("upgradeBtn2").style.display = "block";
 	document.getElementById("upgradeBtn3").style.display = "block";
 	document.getElementById("turn").innerHTML = parseFloat(document.getElementById("turn").innerHTML) + 1;
-	document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
-    document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
-    document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
+	document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / resourceLossDivisor;
+    document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / resourceLossDivisor;
+    document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / resourceLossDivisor;
    	if (parseFloat(document.getElementById("oxygen").innerHTML) < 0) {
     	document.getElementById("oxygen").innerHTML = "Game Over";
         document.getElementById("food").innerHTML = "Game Over";
@@ -106,7 +109,7 @@ function advanceTime() {
     	document.getElementById("population").innerHTML = Math.round(parseFloat(document.getElementById("population").innerHTML)) + 1;
     }
 
-    	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / 20;
+    	document.getElementById("energy").innerHTML = parseFloat(document.getElementById("energy").innerHTML) + parseFloat(document.getElementById("population").innerHTML) / energyLossDivisorr;
     
     document.getElementById("oxygenBtn").style.display = "block";
     document.getElementById("foodBtn").style.display = "block";

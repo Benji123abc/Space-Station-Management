@@ -74,9 +74,9 @@
 <script>
 
 function advanceTime() {
-	document.getElementById("upgradeBtn1").innerHTML.style.display = "block";
-	document.getElementById("upgradeBtn2").innerHTML.style.display = "block";
-	document.getElementById("upgradeBtn3").innerHTML.style.display = "block";
+	document.getElementById("upgradeBtn1").style.display = "block";
+	document.getElementById("upgradeBtn2").style.display = "block";
+	document.getElementById("upgradeBtn3").style.display = "block";
 	document.getElementById("turn").innerHTML = parseFloat(document.getElementById("turn").innerHTML) + 1;
 	document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
     document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - parseFloat(document.getElementById("population").innerHTML) / 10;
@@ -151,13 +151,13 @@ function collect(resource) {
 }
 
 function upgradeOneClick() {
-	document.getElementById("upgradeBtn1").innerHTML.style.display = "none";
+	document.getElementById("upgradeBtn1").style.display = "none";
 }
 function upgradeTwoClick() {
-	document.getElementById("upgradeBtn2").innerHTML.style.display = "none";
+	document.getElementById("upgradeBtn2").style.display = "none";
 }
 function upgradeThreeClick() {
-	document.getElementById("upgradeBtn3").innerHTML.style.display = "none";
+	document.getElementById("upgradeBtn3").style.display = "none";
 }
 </script>
 </head>

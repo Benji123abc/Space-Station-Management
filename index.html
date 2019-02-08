@@ -21,13 +21,13 @@
     top: 5%;
 }
 #oxygenBtn {
-	display: solid;
+	display: block;
 }
 #foodBtn {
-	display: solid;
+	display: block;
 }
 #waterBtn {
-	display: solid;
+	display: block;
 }
 #energyLabel {
 	position: absolute;
@@ -169,9 +169,10 @@ function upgradeTwoClick() {
 }
 function upgradeThreeClick() {
 	if (parseFloat(document.getElementById("water").innerHTML) > 50) {
-		document.getElementById("upgradeBtn3").style.display = "none";
-		//energyLossDivisor += 1;
-		document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - 50;
+        document.getElementById("upgradeBtn3").style.display = "none";
+        //energyLossDivisor += 1;
+        document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - 50;
+    }
 }
 </script>
 </head>

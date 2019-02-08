@@ -75,6 +75,7 @@
 
 let resourceLossDivisor = 10;
 let energyLossDivisor = 2;
+let upgradeLossDivisor = 10;
 
 function advanceTime() {
 	document.getElementById("upgradeBtn1").style.display = "block";
@@ -157,22 +158,22 @@ function upgradeOneClick() {
 	if (parseFloat(document.getElementById("oxygen").innerHTML) > 50) {
 		document.getElementById("upgradeBtn1").style.display = "none";
 		resourceLossDivisor += 1;
-		document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - 50;
+		document.getElementById("oxygen").innerHTML = parseFloat(document.getElementById("oxygen").innerHTML) - (500 / upgradeLossDivisor);
 	}
 }
 function upgradeTwoClick() {
 	if (parseFloat(document.getElementById("food").innerHTML) > 50) {
 		document.getElementById("upgradeBtn2").style.display = "none";
 		energyLossDivisor += 1;
-		document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - 50;
+		document.getElementById("food").innerHTML = parseFloat(document.getElementById("food").innerHTML) - (500 / upgradeLossDivisor);
 	}
 }
 function upgradeThreeClick() {
 	if (parseFloat(document.getElementById("water").innerHTML) > 50) {
         document.getElementById("upgradeBtn3").style.display = "none";
-        //energyLossDivisor += 1;
-        document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - 50;
-    }
+        document.getElementById("water").innerHTML = parseFloat(document.getElementById("water").innerHTML) - (500 / upgradeLossDivisor);
+        upgradeLossDivisor += 1;
+	}
 }
 </script>
 </head>

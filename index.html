@@ -155,9 +155,11 @@ function collect(resource) {
 
 function upgradeOneClick() {
 	document.getElementById("upgradeBtn1").style.display = "none";
+	resourceLossDivisor += 1;
 }
 function upgradeTwoClick() {
 	document.getElementById("upgradeBtn2").style.display = "none";
+	energyLossDivisor += 1;
 }
 function upgradeThreeClick() {
 	document.getElementById("upgradeBtn3").style.display = "none";
@@ -187,8 +189,8 @@ function upgradeThreeClick() {
 <p id="populationLabel">Population</p>
 <p id="population">50</p>
 <p id="upgradesTxt">Upgrades</p>
-<button id="upgradeBtn1" onclick="upgradeOneClick()">Upgrade 1</button>
-<button id="upgradeBtn2" onclick="upgradeTwoClick()">Upgrade 2</button>
+<button id="upgradeBtn1" onclick="upgradeOneClick()">Resource Loss</button>
+<button id="upgradeBtn2" onclick="upgradeTwoClick()">Energy Loss</button>
 <button id="upgradeBtn3" onclick="upgradeThreeClick()">Upgrade 3</button>
 </body>
 </html>
